@@ -36,3 +36,56 @@
     transform: rotate(360deg);
   }
 }
+
+
+.overall{
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+body{
+  background-image: url("https://wallpaperplay.com/walls/full/f/b/1/212291.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+
+/* 
+.navbar,
+.navbar-default {
+} */
+
+.mr-auto{
+  margin-top: 10px;
+}
+
+.home-description{
+  color:black;
+  font-weight: bolder;
+  border-radius: 25px;
+  background: rgb(255,213,163,0.7);
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-top: 5px;
+  
+}
+
+
+.resources{
+  color:black;
+  border: 2px solid black;
+  border-radius: 7px;
+  background: #ffd5a3;
+  margin-left: 21px;
+}
+
+.hero-container{
+  font-weight: bolder;
+  background: #ffd5a3;
+}
+
+.builds{
+  border: 2px solid black;
+}
