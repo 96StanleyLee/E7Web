@@ -35,7 +35,7 @@ export const getArtifacts = () =>{
  }
 
  export const autoLogin = () =>{
-   return fetch("http://e7webend.herokuapp.com/autologin", {
+   return fetch("https://e7webend.herokuapp.com/autologin", {
     credentials: "include"
   })
     .then(r => {
