@@ -1,5 +1,5 @@
 export const getHeroes = () =>{
-  return fetch('http://e7webend.herokuapp.com/heros')
+  return fetch('https://e7webend.herokuapp.com/heros')
     .then(r => r.json())
     .then(obj => {
       return obj
@@ -7,7 +7,7 @@ export const getHeroes = () =>{
 }
 
 export const getArtifacts = () =>{
-  return fetch('http://e7webend.herokuapp.com/artifacts')
+  return fetch('https://e7webend.herokuapp.com/artifacts')
   .then(r => r.json())
   .then(obj => obj)
 }
@@ -16,7 +16,7 @@ export const getArtifacts = () =>{
 
 
  export const login = (username,password) =>{
-  return fetch("http://e7webend.herokuapp.com/login", {
+  return fetch("https://e7webend.herokuapp.com/login", {
       method: "POST",
       credentials: "include",
       headers: {
