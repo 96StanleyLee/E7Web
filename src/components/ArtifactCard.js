@@ -7,7 +7,7 @@ import {Modal} from 'react-bootstrap'
 
 
 const StyledImage = styled.img`
-  width: 303px;
+  width: 100%;
   -webkit-transition: all 1s ease;
   transition: all 0.5s ease;
 

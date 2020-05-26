@@ -34,7 +34,6 @@ function App(){
 
   return (
       <Router>
-      {user? null:<Redirect to="/login"/> }
       <NavigationBar/>
       <div className="overall">
       <Route exact path={`/`} component={Home} />

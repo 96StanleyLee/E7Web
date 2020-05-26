@@ -29,7 +29,7 @@ function NavigationBar(props) {
       <>
       {show? <ChatContainer show={show} close={handleShow}/>:null}
  
-      <Navbar  className="navbar" bg="light" expand="lg">
+      <Navbar className="navbar" bg="light" expand="lg">
       <Navbar.Brand href="/">
       <img src="https://images.mmorpg.com/features/13458/images/yuna_logo.png"
        width = "120"
@@ -39,14 +39,14 @@ function NavigationBar(props) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto" >
-          <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-          <Nav.Link><Link to="/heroes">Heroes</Link></Nav.Link>
-          <Nav.Link><Link to="/artifacts">Artifacts</Link></Nav.Link>
+          <Link style={{padding: "10px"}} to='/'>Home</Link>
+          <Link style={{padding: "10px"}} to="/heroes">Heroes</Link>
+          <Link style={{padding: "10px"}} to="/artifacts">Artifacts</Link>
           {user === undefined? null:
-          <Nav.Link><Link varient="primary" onClick={handleShow}>Chat</Link></Nav.Link>
+          <Link style={{padding: "10px"}} varient="primary" onClick={handleShow}>Chat</Link>
           }
           {user!== undefined && user.user_type === "admin"? 
-          <Nav.Link><Link to="/admin">Review</Link></Nav.Link>
+          <Link style={{padding: "10px"}} to="/admin">Review</Link>
           :null}
         </Nav>        
 

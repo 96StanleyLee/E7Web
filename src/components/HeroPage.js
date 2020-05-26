@@ -28,6 +28,7 @@ function HeroPage(props){
   useEffect(()=>{
     let hero = heros.filter(heros => heros.id === parseInt(props.match.params.id))
     setHeroFound(hero)
+    console.log(hero)
     if(hero.length > 0 ){
     setSuggestions(hero[0].suggestions)
     }
@@ -42,6 +43,7 @@ function HeroPage(props){
 
 
 
+  
   useEffect(()=>{
     if(suggestions.length>0){
       suggestions.forEach(suggestion=>{
@@ -79,6 +81,7 @@ function HeroPage(props){
 }
 
 
+
   return (
   <>
   {heroFound.length > 0 ?  
@@ -89,7 +92,7 @@ function HeroPage(props){
       <p style={{fontSize:"30px"}}>{heroFound[0].name}</p>
       <p></p>
       {heroFound[0].stats[0].story}
-      <p><h1> Base Stats </h1></p>
+      <p><h1> Base Stats (60 Awakened) </h1></p>
       <Table celled>
         <HeroStatsTable stats={heroFound[0].stats[0]}/>
       </Table>
@@ -101,9 +104,9 @@ function HeroPage(props){
       <BuildsCarousel builds={builds}  />
     </Container>
   </Grid.Column>
-  <Grid.Column></Grid.Column>
+  <Grid.Column ></Grid.Column>
   <Grid.Column  >
-      <Image style={{ marginTop: "20px"}} src= {heroFound[0].image} />
+      <Image style={{ marginTop: "20px", width: "auto", height: "auto"}} src= {heroFound[0].image} />
         <ArtifactsCarousel artifacts={suggestionArtifact}/>
   </Grid.Column>
     </Grid>

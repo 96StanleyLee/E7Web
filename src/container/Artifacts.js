@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Header, Menu, Card, Image } from 'semantic-ui-react'
+import { Header, Menu, Card, Image, Dropdown } from 'semantic-ui-react'
 import ArtifactCard from '../components/ArtifactCard'
 import { useSelector, useDispatch } from 'react-redux'
 import {fetchArtifacts} from '../store/actions'
@@ -18,7 +18,9 @@ function Artifacts(){
 
   
  
-
+  const set = (e,value) =>{
+    setActiveItem(value.value)
+  }
 
 
 
@@ -39,12 +41,16 @@ function Artifacts(){
     return artifacts
   }
 
+  const options = [
+    { text: 'Name', value: "alphabetically" },
+    { text: 'Role', value: "role" },
 
-
+  ]
   return (
     <>
     <div style={{float: "right", position: "absolute", top: "20px", marginLeft: "20px "}}>
-    <Menu text>
+    <Dropdown text='Sort' onChange={(e,value)=>set(e,value)} options={options} simple item />
+    {/* <Menu text>
           <Menu.Item header>Sort By</Menu.Item>
           <Menu.Item
             name='Role'
@@ -57,7 +63,7 @@ function Artifacts(){
             onClick={()=>setActiveItem('alphabetically')}
           />
 
-        </Menu>
+        </Menu> */}
   <Card.Group itemsPerRow={4} style={{margin: "auto", width: "90%"}}>
     {sort().map(artifact => <ArtifactCard artifact={artifact} />)}
   </Card.Group>

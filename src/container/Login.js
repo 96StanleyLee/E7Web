@@ -22,7 +22,7 @@ function Login(){
     
     return (
       <>
-      {!user? <h1>bye</h1>:<Redirect to="/" />}
+      {!user? null:<Redirect to="/" />}
       <Form style={{margin: "auto"}}>
         <Form.Field>
         <label>Username</label>

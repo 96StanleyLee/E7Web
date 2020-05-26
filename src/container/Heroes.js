@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Header, Menu, Card, Loader, Dimmer, Segment } from 'semantic-ui-react'
+import { Header, Menu, Card, Loader, Dimmer, Segment, Dropdown } from 'semantic-ui-react'
 import HeroCard from '../components/HeroCard'
 import { useSelector} from 'react-redux'
 
@@ -27,8 +27,15 @@ function Heroes(props){
   }
 
  
+  const options = [
+    { text: 'Name', value: "name" },
+    { text: 'Role', value: "role" },
 
+  ]
 
+  const set = (e,value) =>{
+    setActiveItem(value.value)
+  }
   return (
     
      <>
@@ -38,7 +45,10 @@ function Heroes(props){
     {heros? 
       <>
     <Header style={{margin:"auto"}} size='huge'>Heroes</Header>
+
     <div style={{float: "right", position: "absolute", top: "20px", marginLeft: "20px "}}>
+    <Dropdown text='Sort' onChange={(e,value)=>set(e,value)} options={options} simple item />
+{/* 
       <Menu text>
           <Menu.Item header>Sort By</Menu.Item>
           <Menu.Item
@@ -51,7 +61,7 @@ function Heroes(props){
             active={activeItem === 'name'}
             onClick={()=>setActiveItem('name')}
           />
-        </Menu>
+        </Menu> */}
   <Card.Group itemsPerRow={4} style={{margin: "auto", width: "90%"}}>
     { sort().map(hero => <HeroCard key={hero.id} hero={hero}/>)}
   </Card.Group>
