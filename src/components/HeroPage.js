@@ -81,6 +81,7 @@ function HeroPage(props){
 }
 
 
+  console.log(builds)
 
   return (
   <>
