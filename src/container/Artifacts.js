@@ -6,6 +6,7 @@ import {fetchArtifacts} from '../store/actions'
 
 
 function Artifacts(){
+  const [activeItem, setActiveItem] = useState("")
 
 
 
@@ -20,20 +21,47 @@ function Artifacts(){
 
 
 
+
   useEffect(()=>{
     dispatch(fetchArtifacts())
   },[])
 
 
+  const sort = () =>{
+    if(activeItem === "alphabetically"){
+      let artifact = artifacts.sort((artifact1,artifact2) => (artifact1.name).localeCompare(artifact2.name))
+      return artifact 
+    }
+    else if(activeItem === "role"){
+      let artifact = artifacts.sort((artifact1,artifact2) => (artifact1.role).localeCompare(artifact2.role))
+      return artifact 
+    }
+    return artifacts
+  }
 
-  console.log(user)
 
-  console.log(artifacts)
+
   return (
     <>
-  <Card.Group itemsPerRow={4 } style={{margin: "auto", width: "90%"}}>
-    {artifacts.map(artifact => <ArtifactCard artifact={artifact} />)}
+    <div style={{float: "right", position: "absolute", top: "20px", marginLeft: "20px "}}>
+    <Menu text>
+          <Menu.Item header>Sort By</Menu.Item>
+          <Menu.Item
+            name='Role'
+            active={activeItem === 'role'}
+            onClick={()=>setActiveItem('role')}
+          />
+          <Menu.Item
+            name='Alphabetically'
+            active={activeItem === 'alphabetically'}
+            onClick={()=>setActiveItem('alphabetically')}
+          />
+
+        </Menu>
+  <Card.Group itemsPerRow={4} style={{margin: "auto", width: "90%"}}>
+    {sort().map(artifact => <ArtifactCard artifact={artifact} />)}
   </Card.Group>
+  </div>
     </>
   )
 }

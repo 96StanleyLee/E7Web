@@ -7,9 +7,9 @@ import {useSelector} from 'react-redux'
 
 
 function UploadModal(props){
-
-    const [show, setShow] = useState(false);
+  
     const [file, setFile] = useState({})
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
@@ -17,6 +17,7 @@ function UploadModal(props){
 
     const user =  useSelector(state => state.user)
     const id = props.id
+
     const submit = () =>{
 
     const form = new FormData()
@@ -34,9 +35,9 @@ function UploadModal(props){
         throw r
       }
       return r.json()})
-    .then(obj => props.set(prevState => [...prevState,obj]))
+    .then(obj => console.log(obj))
 
-    handleShow()
+    handleClose()
   }
 
 

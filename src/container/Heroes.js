@@ -13,6 +13,19 @@ function Heroes(props){
   const heros =  useSelector(state => state.heroes)
 
   
+  const sort = () =>{
+    if(activeItem === "name"){
+      let hero = heros.sort((hero1,hero2) => (hero1.name).localeCompare(hero2.name))
+      return hero 
+    }
+    else if(activeItem === "role"){
+      let hero = heros.sort((hero1,hero2) => (hero1.role).localeCompare(hero2.role))
+      return hero 
+    }
+    return heros
+
+  }
+
  
 
 
@@ -29,23 +42,18 @@ function Heroes(props){
       <Menu text>
           <Menu.Item header>Sort By</Menu.Item>
           <Menu.Item
-            name='closest'
-            active={activeItem === 'closest'}
-            onClick={()=>setActiveItem('closest')}
+            name='Role'
+            active={activeItem === 'role'}
+            onClick={()=>setActiveItem('role')}
           />
           <Menu.Item
-            name='mostComments'
-            active={activeItem === 'mostComments'}
-            onClick={()=>setActiveItem('mostComments')}
-          />
-          <Menu.Item
-            name='mostPopular'
-            active={activeItem === 'mostPopular'}
-            onClick={()=>setActiveItem('mostPopular')}
+            name='Name'
+            active={activeItem === 'name'}
+            onClick={()=>setActiveItem('name')}
           />
         </Menu>
   <Card.Group itemsPerRow={4} style={{margin: "auto", width: "90%"}}>
-    { heros.map(hero => <HeroCard key={hero.id} hero={hero}/>)}
+    { sort().map(hero => <HeroCard key={hero.id} hero={hero}/>)}
   </Card.Group>
     </div>
     </>

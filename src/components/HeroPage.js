@@ -14,7 +14,6 @@ import {Link} from "react-router-dom";
 
 
 function HeroPage(props){
-
   let panes = ""
   const [heroFound, setHeroFound] = useState([])
   const [suggestions, setSuggestions] = useState([])

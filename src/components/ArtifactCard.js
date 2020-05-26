@@ -36,6 +36,11 @@ function ArtifactCard(props){
         />
       <Card.Content>
         <Card.Header textAlign={"center"}>{props.artifact.name}</Card.Header>
+        <Card.Header textAlign={"center"}>{
+        props.artifact.role !== "" ?
+        props.artifact.role.charAt(0).toUpperCase() + props.artifact.role.slice(1): 'All Role'
+        }</Card.Header>
+
       </Card.Content>
     </Card>
 
