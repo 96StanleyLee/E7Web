@@ -3,15 +3,22 @@ import logo from '../logo.svg';
 import { Container, Header, Image } from 'semantic-ui-react'
 import {Carousel} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
+import ChatContainer from '../container/ChatContainer'
+import {BrowserRouter as Router,Switch,Route, Redirect} from "react-router-dom";
+
+
 
 
 
 function Home() {
 
 
+
+
   return (
     
     <>
+
         <div>
             <div className = "home-description">
                 <Container style={{textAlign: "left"}} text fluid>

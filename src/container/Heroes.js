@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Header, Menu, Card, Loader, Dimmer, Segment } from 'semantic-ui-react'
+import { Header, Menu, Card, Loader, Dimmer, Segment, Dropdown } from 'semantic-ui-react'
 import HeroCard from '../components/HeroCard'
 import { useSelector} from 'react-redux'
 
@@ -13,9 +13,29 @@ function Heroes(props){
   const heros =  useSelector(state => state.heroes)
 
   
+  const sort = () =>{
+    if(activeItem === "name"){
+      let hero = heros.sort((hero1,hero2) => (hero1.name).localeCompare(hero2.name))
+      return hero 
+    }
+    else if(activeItem === "role"){
+      let hero = heros.sort((hero1,hero2) => (hero1.role).localeCompare(hero2.role))
+      return hero 
+    }
+    return heros
+
+  }
+
  
+  const options = [
+    { text: 'Name', value: "name" },
+    { text: 'Role', value: "role" },
 
+  ]
 
+  const set = (e,value) =>{
+    setActiveItem(value.value)
+  }
   return (
     
      <>
@@ -25,27 +45,25 @@ function Heroes(props){
     {heros? 
       <>
     <Header style={{margin:"auto"}} size='huge'>Heroes</Header>
+
     <div style={{float: "right", position: "absolute", top: "20px", marginLeft: "20px "}}>
+    <Dropdown text='Sort' onChange={(e,value)=>set(e,value)} options={options} simple item />
+{/* 
       <Menu text>
           <Menu.Item header>Sort By</Menu.Item>
           <Menu.Item
-            name='closest'
-            active={activeItem === 'closest'}
-            onClick={()=>setActiveItem('closest')}
+            name='Role'
+            active={activeItem === 'role'}
+            onClick={()=>setActiveItem('role')}
           />
           <Menu.Item
-            name='mostComments'
-            active={activeItem === 'mostComments'}
-            onClick={()=>setActiveItem('mostComments')}
+            name='Name'
+            active={activeItem === 'name'}
+            onClick={()=>setActiveItem('name')}
           />
-          <Menu.Item
-            name='mostPopular'
-            active={activeItem === 'mostPopular'}
-            onClick={()=>setActiveItem('mostPopular')}
-          />
-        </Menu>
+        </Menu> */}
   <Card.Group itemsPerRow={4} style={{margin: "auto", width: "90%"}}>
-    { heros.map(hero => <HeroCard key={hero.id} hero={hero}/>)}
+    { sort().map(hero => <HeroCard key={hero.id} hero={hero}/>)}
   </Card.Group>
     </div>
     </>

@@ -11,7 +11,6 @@ const defaultState = {
 
 
 const reducer = (state = defaultState, action) => {
-    console.log(action)
     switch(action.type) {
         case "SET_HEROES":
             return {...state, heroes: action.payload}
