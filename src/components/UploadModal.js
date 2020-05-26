@@ -25,7 +25,7 @@ function UploadModal(props){
     form.append("user", user.id)
     form.append("id", id)
     
-    fetch("http://e7webend.herokuapp.com/ownerships", {
+    fetch("https://e7webend.herokuapp.com/ownerships", {
       method: "POST",
       body: form
     })

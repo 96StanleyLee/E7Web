@@ -14,7 +14,7 @@ export default class Register extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         if (this.state.password === this.state.passwordConfirm) {
-          fetch("e7webend.herokuapp.com/register", {
+          fetch("https://e7webend.herokuapp.com/register", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"

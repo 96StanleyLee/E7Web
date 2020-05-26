@@ -14,7 +14,7 @@ function BuildsPage(props){
 
 
   useEffect(()=>{
-    fetch(`http://e7webend.herokuapp.com/builds/${props.match.params.id}`)
+    fetch(`https://e7webend.herokuapp.com/builds/${props.match.params.id}`)
     .then(r=> r.json())
     .then(obj => setBuilds(obj))
   },[])

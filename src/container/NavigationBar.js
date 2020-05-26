@@ -14,7 +14,7 @@ function NavigationBar(props) {
   const handleShow = () => setShow(!show);
 
   const logout = () =>{
-    fetch("http://e7webend.herokuapp.com/logout", {
+    fetch("https://e7webend.herokuapp.com/logout", {
       method: "POST",
       credentials: "include"
     })

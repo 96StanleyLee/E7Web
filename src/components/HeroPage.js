@@ -36,7 +36,7 @@ function HeroPage(props){
 
 
   useEffect(()=>{
-    fetch(`http://e7webend.herokuapp.com/builds/?id=${props.match.params.id}`)
+    fetch(`https://e7webend.herokuapp.com/builds/?id=${props.match.params.id}`)
     .then(r => r.json())
     .then(obj => setBuilds(obj))
   },[user])
@@ -47,7 +47,7 @@ function HeroPage(props){
   useEffect(()=>{
     if(suggestions.length>0){
       suggestions.forEach(suggestion=>{
-        fetch(`http://e7webend.herokuapp.com/artifacts/${suggestion.artifact_id}`)
+        fetch(`https://e7webend.herokuapp.com/artifacts/${suggestion.artifact_id}`)
         .then(r => r.json())
         .then(object => setSuggestionArtifact(prevState =>{
           return [...prevState, object]

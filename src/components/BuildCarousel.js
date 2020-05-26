@@ -17,14 +17,14 @@ function BuildCarousel({build}){
 
 
     useEffect(()=>{
-      fetch(`http://e7webend.herokuapp.com/comments/?id=${build.id}`)
+      fetch(`https://e7webend.herokuapp.com/comments/?id=${build.id}`)
       .then(r => r.json())
       .then(obj => setComments(obj))
     },[])
   
 
     const submit = () =>{
-      fetch('http://e7webend.herokuapp.com/comments/', {
+      fetch('https://e7webend.herokuapp.com/comments/', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -56,7 +56,7 @@ function BuildCarousel({build}){
   
     const deleteComment = (comment) =>{
       console.log(comment)
-        fetch(`http://e7webend.herokuapp.com/comments/${comment.id}`, {
+        fetch(`https://e7webend.herokuapp.com/comments/${comment.id}`, {
           method: 'delete'
         })
         .then(obj => testDelete(comment) )
