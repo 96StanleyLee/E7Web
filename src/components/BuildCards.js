@@ -18,21 +18,21 @@ function BuildCard({build}){
 
     const deleteComment = (comment) =>{
         console.log(comment)
-          fetch(`http://localhost:3000/comments/${comment.id}`, {
+          fetch(`http://e7webend.herokuapp.com/comments/${comment.id}`, {
             method: 'delete'
           })
           .then(obj => testDelete(comment) )
         }
 
         useEffect(()=>{
-            fetch(`http://localhost:3000/comments/?id=${build.id}`)
+            fetch(`http://e7webend.herokuapp.com/comments/?id=${build.id}`)
             .then(r => r.json())
             .then(obj => setComments(obj))
           },[])
         
 
         const submit = () =>{
-            fetch('http://localhost:3000/comments/', {
+            fetch('http://e7webend.herokuapp.com/comments/', {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"

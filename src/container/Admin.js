@@ -14,7 +14,7 @@ function Admin(){
 
 
   useEffect(()=>{
-    fetch('http://localhost:3000/review')
+    fetch('http://e7webend.herokuapp.com/review')
     .then(r =>r.json())
     .then(obj => setBuilds(obj))
   },[])
@@ -22,7 +22,7 @@ function Admin(){
   
   const accept = (data) =>{
     let build = [...builds]
-    fetch(`http://localhost:3000/ownerships/${data.id}`, {
+    fetch(`http://e7webend.herokuapp.com/ownerships/${data.id}`, {
       method: `PATCH`,
       body: JSON.stringify({
       completed: true
@@ -40,7 +40,7 @@ function Admin(){
 
   const reject = (data) =>{
     let build = [...builds]
-    fetch(`http://localhost:3000/ownerships/${data.id}`, {
+    fetch(`http://e7webend.herokuapp.com/ownerships/${data.id}`, {
       method: 'DELETE',
     })
     .then(resp => resp.json())
